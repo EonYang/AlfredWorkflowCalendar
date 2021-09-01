@@ -9,7 +9,18 @@
 	<key>connections</key>
 	<dict>
 		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
-		<array/>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8ABBBF50-108D-4B26-B27E-F6ABA5DF874D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Yang</string>
@@ -39,7 +50,7 @@
 				<key>keyword</key>
 				<string>cal</string>
 				<key>queuedelaycustom</key>
-				<integer>1</integer>
+				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
 				<false/>
 				<key>queuedelaymode</key>
@@ -49,7 +60,7 @@
 				<key>runningsubtext</key>
 				<string>loading...</string>
 				<key>script</key>
-				<string>/Users/YANG/.pyenv/versions/alfred/bin/python main.py $1</string>
+				<string>/Users/YANG/.pyenv/versions/alfred/bin/python src/main.py $1</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -70,6 +81,23 @@
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>jumpto</key>
+				<string>_popUpItemAction:</string>
+				<key>path</key>
+				<string>{query}</string>
+				<key>type</key>
+				<integer>3</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.actioninalfred</string>
+			<key>uid</key>
+			<string>8ABBBF50-108D-4B26-B27E-F6ABA5DF874D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -78,9 +106,16 @@
 		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>50</integer>
+			<integer>80</integer>
 			<key>ypos</key>
 			<integer>50</integer>
+		</dict>
+		<key>8ABBBF50-108D-4B26-B27E-F6ABA5DF874D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>425</integer>
+			<key>ypos</key>
+			<integer>60</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
