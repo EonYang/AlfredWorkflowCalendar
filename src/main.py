@@ -2,9 +2,11 @@ from sys import argv
 from CalStoreHelper import CalStoreHelper
 from Foundation import NSDate  # type: ignore
 import arrow
+from pytz import timezone
 from utils import build_output_item, build_output
 days = int(argv[1] if len(argv) > 1 else '3')
 
+tz_ny = timezone('America/New_York')
 helper = CalStoreHelper()
 
 res = helper.getEvents(
@@ -15,9 +17,10 @@ res = helper.getEvents(
 
 
 def subtitle(event):
+    time = arrow.get((str(event.startDate()).split(' +')[0])).to(tz_ny)
     return "{} | {} | {}".format(
-        arrow.get((str(event.startDate()).split(' +')[0])).humanize(),
-        arrow.get((str(event.startDate()).split(' +')[0])).format('hh:mm'),
+        time.humanize(),
+        time.format('hh:mm A'),
         event.calendar().title(),
     )
 
