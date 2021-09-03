@@ -8,14 +8,18 @@ days = int(argv[1] if len(argv) > 1 else '3')
 helper = CalStoreHelper()
 
 res = helper.getEvents(
-    ['yy2473@nyu.edu'],
+    None,
     NSDate.date(),
     NSDate.dateWithTimeIntervalSinceNow_(3600 * 24 * days)
 )
 
 
 def subtitle(event):
-    return f"{arrow.get((str(event.startDate()).split(' +')[0])).humanize()} | {event.calendar().title()}"  # noqa: E501
+    return "{} | {} | {}".format(
+        arrow.get((str(event.startDate()).split(' +')[0])).humanize(),
+        arrow.get((str(event.startDate()).split(' +')[0])).format('hh:mm'),
+        event.calendar().title(),
+    )
 
 
 def notes(event):
