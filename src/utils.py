@@ -1,3 +1,6 @@
+from urllib.parse import quote_plus, unquote_plus
+from pytz import timezone
+import arrow
 import json
 from typing import List, Optional, Union
 from typing_extensions import Literal
@@ -49,4 +52,17 @@ def build_output_item(title: str,
 def build_output(items: List[dict]):
     if len(items) == 0:
         return json.dumps({'items': [build_output_item('Nothing', '')]})
-    return json.dumps({'items': items})
+    return json.dumps({'items': items}, indent=4)
+
+
+def get_time(event):
+    tz_ny = timezone('America/New_York')
+    return arrow.get((str(event.startDate()).split(' +')[0])).to(tz_ny)
+
+
+def encode_arg(arg: str) -> str:
+    return quote_plus(str(arg))
+
+
+def decode_arg(arg: str) -> str:
+    return unquote_plus(arg)
