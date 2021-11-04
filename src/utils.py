@@ -24,6 +24,8 @@ from pydantic import BaseModel
 
 OutputType = Optional[Union[Literal['file'], Literal['default']]]
 
+# https://www.alfredapp.com/help/workflows/inputs/script-filter/json/
+
 
 class OutputItem(BaseModel):
     uid: str

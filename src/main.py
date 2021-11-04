@@ -18,12 +18,14 @@ res = helper.getEvents(
 res.sort(key=lambda event: get_time(event))
 
 
-def subtitle(event):
+def subtitle(event, *other_info: str):
     time = get_time(event)
-    return " | ".join([
+    return '{:20s} \t{:20s} \t{:32s}'.format(
         time.humanize(),
         time.format('MM-DD hh:mm A'),
         event.calendar().title(),
+    ) + "\t|\t".join([
+        *other_info
     ]
     )
 
@@ -37,5 +39,5 @@ print(build_output(
         event.title(),
         subtitle(event),
         encode_arg(notes(event)),
-    )
-        for event in res]))
+        uid=str(order))
+        for order, event in enumerate(res)]))
