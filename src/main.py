@@ -16,16 +16,14 @@ res = helper.getEvents(
 )
 
 res.sort(key=lambda event: get_time(event))
-res = [(i, e) for i, e in enumerate(res)]
 
 
-def subtitle(event, order):
+def subtitle(event):
     time = get_time(event)
     return " | ".join([
         time.humanize(),
         time.format('MM-DD hh:mm A'),
         event.calendar().title(),
-        str(order)
     ]
     )
 
@@ -37,7 +35,7 @@ def notes(event):
 print(build_output(
     [build_output_item(
         event.title(),
-        subtitle(event, order),
+        subtitle(event),
         encode_arg(notes(event)),
-        uid=event.uid())
-        for order, event in res]))
+    )
+        for event in res]))
