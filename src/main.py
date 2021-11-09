@@ -39,4 +39,4 @@ print(build_output(
         event.title(),
         subtitle(event),
         encode_arg(notes(event)))
-        for _, event in enumerate(res)]))
+        for order, event in enumerate(res)]))

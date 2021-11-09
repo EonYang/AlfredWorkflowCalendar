@@ -28,7 +28,7 @@ OutputType = Optional[Union[Literal['file'], Literal['default']]]
 
 
 class OutputItem(BaseModel):
-    uid: str
+    uid: Optional[str]
     type: OutputType
     title: str
     subtitle: str
@@ -41,8 +41,6 @@ def build_output_item(title: str,
                       arg: Optional[str] = None,
                       type: OutputType = "default",
                       uid: Optional[str] = None,) -> dict:
-    if uid is None:
-        uid = title
     return OutputItem(title=title,
                       subtitle=subtitle,
                       arg=arg,
