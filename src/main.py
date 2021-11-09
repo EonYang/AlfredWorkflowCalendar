@@ -38,6 +38,5 @@ print(build_output(
     [build_output_item(
         event.title(),
         subtitle(event),
-        encode_arg(notes(event)),
-        uid=str(order))
-        for order, event in enumerate(res)]))
+        encode_arg(notes(event)))
+        for _, event in enumerate(res)]))
